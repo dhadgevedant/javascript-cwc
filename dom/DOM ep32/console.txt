@@ -1,0 +1,44 @@
+document.getElementById("main")
+<dir class=​"mainHead" id=​"main">​<h1>​Heading​</h1>​<p>​Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, odit!​</p>​</dir>​
+document.getElementById("main").h1
+undefined
+document.getElementById("main")[0]
+undefined
+document.getElementById("main").h1
+undefined
+clear
+ƒ clear() { [native code] }
+document.getElementById("main").class
+undefined
+document.getElementById("main").className
+'mainHead'
+document.getElementById("main").getAttribute
+ƒ getAttribute() { [native code] }
+document.getElementById("main").setAttribute('class','test')
+undefined
+document.getElementById("main").setAttribute('class','test')
+undefined
+document.getElementById("main").setAttribute('class','main')
+undefined
+document.getElementById("main").setAttribute('class','mainHead')
+undefined
+const test = document.getElementById("main")
+undefined
+test
+<dir class=​"mainHead" id=​"main">​…​</dir>​
+test.sty
+undefined
+test.style.backgroundColor = black
+VM936:1 Uncaught ReferenceError: black is not defined
+    at <anonymous>:1:30
+(anonymous) @ VM936:1
+test.style.backgroundColor = 'black'
+'black'
+test.style.color = 'white'
+'white'
+
+
+//summary:
+//1. selected the main element using getElementById
+//2. changed the background color to black
+//3. changed the text color to white

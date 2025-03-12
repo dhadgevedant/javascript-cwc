@@ -63,7 +63,21 @@ const helloArrow = () =>{
    console.log("hello admin");
 }
 
+helloArrow();
 
-//implicit return
+
+//implicit return`
 const add2 = (num1,num2) => num1+num2;
 
+
+
+//IIFE -> immediately invoked function expression
+// function that is invoked automatically
+//just end iife with a ';' so as to avoid erros
+
+(   
+    (prog) => {
+        console.log(`${prog}Program ended`);
+    }   
+    
+)("function.js");

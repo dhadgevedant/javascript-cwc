@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-color: rgb(36, 36, 36);
+            color: white;
+        }
+
+        .main{
+            padding: 10px;
+            border: 2px solid white;
+        }
+        .parent{
+            padding: 10px;
+            text-align: center;
+        }
+        .day{
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <dir class="main">
+
+        <dir class="parent">
+            <div class="day">
+                Monday
+            </div>
+            <div class="day">
+                Tuesday
+            </div>
+            <div class="day">
+                Wednesday
+            </div>
+            <div class="day">
+                Thursday
+            </div>
+            <div class="day">
+                Friday
+            </div>
+            <div class="day">
+                Saturday
+            </div>
+            <div class="day">
+                Sunday
+            </div>
+        </dir>
+    </dir>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    
+    for(let i = 0; i < parent.children.length; i++){
+        
+        console.log(parent.children[i].innerText)
+    }
+
+</script>
+
+</html>
