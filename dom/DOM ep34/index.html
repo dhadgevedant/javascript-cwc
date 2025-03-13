@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-color: rgb(36, 36, 36);
+            color: white;
+        }
+
+        .main{
+            padding: 10px;
+            border: 2px solid white;
+        }
+        .parent{
+            padding: 10px;
+            text-align: center;
+        }
+        .child{
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="main">
+
+        <ul class="parent" style="list-style-type: none;">
+            <li class="child">Javascript</li>
+            
+        </ul>
+    </div>
+    
+</body>
+
+<script>
+
+    const parent = document.querySelector('.parent')
+    
+
+    function addE(newLang){  
+        
+        const newLi = document.createElement('li')
+        //optimized way of appending to a list
+        newLi.appendChild(document.createTextNode(newLang))
+        parent.appendChild(newLi)
+    }
+
+    addE('python')
+    addE('Java')
+    addE('C++')
+
+    
+    ;function editE({newLang,childNumber}){
+
+        const toEdit = document.querySelector("li:nth-child(" + childNumber + ")")
+        
+        const newLi = document.createElement('li')
+        newLi.appendChild(document.createTextNode(newLang))
+        
+        toEdit.replaceWith(newLi)
+    }
+    editE({
+        newLang: 'C',
+        childNumber: 1
+    })
+
+    ;((childNumber) => {
+
+        const toRem = document.querySelector("li:nth-child(" + childNumber + ")" )
+        toRem.remove()
+    })('2')
+</script>
+
+</html>
