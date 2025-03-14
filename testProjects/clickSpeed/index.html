@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Speed</title>
+
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgb(35, 35, 35);
+            color: white;
+
+            flex-direction: column;
+            gap: 1vh;
+
+            font-family: monospace;
+        }
+        .statBox{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 10px;
+
+            height: 1.7vh;
+            width: 80vw;
+
+            
+        }
+        /* TIMER STYLES */
+            .timer{
+                text-align: center;
+                
+                
+            }
+            .timer h2{
+                font-weight: 100;
+                font-size: 1.5rem;
+            }
+
+        /* BUTTONS */
+            
+            .play{
+                width: 5rem ;
+                font-family: monospace;
+            }
+
+            .restart{
+                width: 5rem;
+                font-family: monospace;
+            }
+            
+        .gameBox{
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            grid-template-rows: repeat(9, 1fr);
+            height: 80vh;
+            width: 80vw;
+            
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .target{
+            background-color: rgb(255, 255, 255);
+            /* border-radius: 50%; */
+            border: 0;
+
+            grid-column: 1;
+            grid-row: 1;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="statBox">
+
+        <button class="play">
+            start
+        </button>
+
+
+        <div class="timer">
+            <h2>00 : 00</h2>
+        </div>
+        
+
+        <button class="restart">
+            restart
+        </button>
+    </div>
+    <div class="gameBox">
+
+        <button class="target" ></button>
+    </div>
+    
+</body>
+
+<script>
+
+    const target = document.querySelector('.target');
+    const play = document.querySelector('.play');
+    const restart = document.querySelector('.restart');
+    const timer = document.querySelector('.timer');
+    
+    var start = false;
+    var time = 0;
+
+
+    function moveButtonOnClick(){
+            
+        target.addEventListener('click', function(){
+            target.style.gridRow = Math.floor(Math.random() * 9) + 1;
+            target.style.gridColumn = Math.floor(Math.random() * 16) + 1;
+        })
+    }
+
+    function setTime(){
+        time = 10;
+    }
+
+    play.addEventListener('click', function(){
+        start = true;
+        time = 10
+
+        game();
+    });
+
+    //GAME LOGIC
+    function game(){
+
+        console.log(start + "  " + time);
+        if(time>0){
+            
+            console.log('in');
+            moveButtonOnClick();
+
+            //FIRURE OUT A WAY TO STOP THIS SET INTERVAL BY CHECKING THE TIME VARIABLE
+
+            setInterval(function(){
+                console.log(time);
+                timer.innerHTML = `<h2>00 : ${time}</h2>`
+                time--;
+
+            },1000)
+        }
+    }
+
+</script>
+</html>
