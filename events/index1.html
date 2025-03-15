@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .image{
+            width:100px;
+           
+        }
+    </style>
 </head>
 <body>
+
+    <ul id="imageList">
+        <li><img class="image" src="image1.jpg" alt="Image 1"></li>
+        <li><img class="image" src="image2.jpg" alt="Image 2"></li>
+        <li><img class="image" src="image3.jpg" alt="Image 3"></li>
+        <li><img class="image" src="image4.jpg" alt="Image 4"></li>
+        <li><img class="image" src="image5.jpg" alt="Image 5"></li>
+    </ul>
+
     
 </body>
+
+<script>
+    const list = document.querySelector('#imageList');
+
+    document.addEventListener('click', function(e){
+
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.parentNode);
+            const rem = e.target.parentNode;
+            rem.remove();
+        }
+
+    },false)
+</script>
+
 </html>
