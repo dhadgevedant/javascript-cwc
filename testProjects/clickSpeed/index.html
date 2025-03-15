@@ -114,46 +114,61 @@
     
     var start = false;
     var time = 0;
+    var clickCount = 0;
 
 
     function moveButtonOnClick(){
-            
+        
         target.addEventListener('click', function(){
-            target.style.gridRow = Math.floor(Math.random() * 9) + 1;
-            target.style.gridColumn = Math.floor(Math.random() * 16) + 1;
+
+            if(time>=0){
+                target.style.gridRow = Math.floor(Math.random() * 9) + 1;
+                target.style.gridColumn = Math.floor(Math.random() * 16) + 1;
+                
+                
+                
+            }
         })
     }
-
-    function setTime(){
-        time = 10;
-    }
-
     play.addEventListener('click', function(){
+
+        clickCount = 0;
         start = true;
-        time = 10
+        time = 5
 
         game();
+
+        setTimeout(function(){
+            console.log(clickCount)    
+        },time*1000);
+        
     });
 
     //GAME LOGIC
     function game(){
 
-        console.log(start + "  " + time);
-        if(time>0){
-            
-            console.log('in');
-            moveButtonOnClick();
-
+        // console.log(start + "  " + time);
+        
             //FIRURE OUT A WAY TO STOP THIS SET INTERVAL BY CHECKING THE TIME VARIABLE
 
-            setInterval(function(){
-                console.log(time);
-                timer.innerHTML = `<h2>00 : ${time}</h2>`
-                time--;
+        setInterval(function(){
+                
+                if(time>=0){
 
-            },1000)
-        }
+                    // console.log('in');
+                    moveButtonOnClick();
+                    
+                    // console.log(time);
+                    timer.innerHTML = `<h2>00 : ${time}</h2>`
+                    time--;
+                }
+            },1000);
+               
+            
+        
     }
+
+    
 
 </script>
 </html>
